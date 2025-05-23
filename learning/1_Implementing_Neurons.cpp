@@ -3,7 +3,6 @@
 #include <vector>
 #include <iomanip>
 
-
 // * ---------- fn firstNeuron() ---------- * //
 void firstNeuron() {
     std::cerr << "function: firstNeuron()" << std::endl;
