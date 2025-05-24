@@ -64,6 +64,22 @@ Vector dot(const Vector &vec, const Matrix &matrix) {
     return result;
 }
 
+// * Finds the dot product of a matrix and a vector => 2D x 1D
+// ! Important - Here the vector is treated as a column matrix
+Vector dot(const Matrix &matrix, const Vector &vec) {
+    size_t vector_rows = vec.size();
+    size_t matrix_columns = matrix[0].size();
+    size_t matrix_rows = matrix.size();
+
+    if (matrix_columns != vector_rows) {
+        throw std::invalid_argument("Shape mismatch. Vector rows: " + std::to_string(vector_rows)\
+            + ", Matrix Columns: " + std::to_string(matrix_columns));
+    }
+
+    
+
+}
+
 Vector transpose(Vector &v) {
 
 }
