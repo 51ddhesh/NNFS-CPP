@@ -1,5 +1,5 @@
-#ifndef __NUMPY_H
-#define __NUMPY_H
+#ifndef __AXON_
+#define __AXON_
 
 #include <iostream>
 #include <vector>
@@ -24,4 +24,4 @@ public:
     }
 };
 
-#endif // __NUMPY_H
+#endif // __AXON_
