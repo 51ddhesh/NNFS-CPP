@@ -1,5 +1,5 @@
-#ifndef __AXON_
-#define __AXON_
+#ifndef __AXON_UTILS_H
+#define __AXON_UTILS_H
 
 #include <iostream>
 #include <vector>
@@ -14,6 +14,9 @@ struct Vector {
 
 struct Matrix {
     std::vector<std::vector<double>> M;
+    Matrix();
+    // Constructor to resize the matrix
+    Matrix(size_t rows, size_t columns, double init_value);
 };
 
 class Axon {
@@ -23,8 +26,8 @@ class Axon {
         Shape shape(const Matrix &matrix);
 
         // Convert a column Vector to a column Matrix
-        Matrix tomatrix(const Vector &vec);
+        Matrix to_column_matrix(const Vector &vec);
 
 };
 
-#endif // __AXON_
+#endif // __AXON_UTILS_H
