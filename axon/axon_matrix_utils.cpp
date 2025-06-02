@@ -31,6 +31,10 @@ Matrix Axon::to_column_matrix(const Vector &vec) {
         throw std::invalid_argument("The argument is a column vector. This function is defined for a row vector");
     }
     size_t rows = vec.V.size();
-    Matrix m;
-    return m;
+    Matrix M(rows, 1, 0); // Declare a matrix of `rows` rows and 1 column
+    for (auto &i : vec.V) {
+        std::vector<double> temp = {i}; // Create a 1D array of each element of the Vector
+        M.M.push_back(temp); // Push that element into the new matrix
+    }
+    return M;
 }

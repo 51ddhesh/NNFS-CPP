@@ -1,5 +1,5 @@
-#ifndef __AXON_UTILS_H
-#define __AXON_UTILS_H
+#ifndef __AXON_UTILS_HPP_
+#define __AXON_UTILS_HPP_
 
 #include <iostream>
 #include <vector>
@@ -30,4 +30,4 @@ class Axon {
 
 };
 
-#endif // __AXON_UTILS_H
+#endif // __AXON_UTILS_HPP_
