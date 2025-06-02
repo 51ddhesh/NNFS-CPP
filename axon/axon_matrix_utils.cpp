@@ -1,5 +1,7 @@
 #include "axon_utils.hpp"
 
+Vector::Vector() : orientation(1) {}
+
 // Default Constructor
 Matrix::Matrix() : M() {}
 
@@ -46,23 +48,22 @@ Matrix Axon::T(const Vector &vec) {
 
 // Find the transpose of the Matrix
 Matrix Axon::T(const Matrix &mat) {
-    size_t rows = mat.M.size();
-    size_t columns = mat.M[0].size();
+    size_t rows = mat.M.size();        // Number of rows in original matrix
+    size_t columns = mat.M[0].size();  // Number of columns in original matrix
 
-    // Create a new matrix to store the transpose
-    // The new matrix has `columns` rows and `row` columns
-    Matrix transposedMatrix;
+    // Create a new matrix for the transpose, with `columns` rows and `rows` columns
+    Matrix transposedMatrix(columns, rows, 0);  // Initialize with zeros (or any default value)
 
-    for (size_t i = 0; i < columns; i++) {
-        std::vector<double> temp;
-        for (size_t j = 0; j < rows; j++) {
-            temp[i] = mat.M[j][i];
+    // Fill the transposed matrix
+    for (size_t i = 0; i < rows; i++) {
+        for (size_t j = 0; j < columns; j++) {
+            transposedMatrix.M[j][i] = mat.M[i][j];  // Switch rows and columns
         }
-        transposedMatrix.M.push_back(temp);
     }
 
     return transposedMatrix;
 }
+
 
 // Print the vector
 void Axon::print(const Vector &vec) {

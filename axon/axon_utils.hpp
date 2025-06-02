@@ -10,6 +10,9 @@ using Shape = std::pair<size_t, size_t>;
 struct Vector {
     std::vector<double> V;
     bool orientation; // True -> horizontal, False -> vertical
+    // Constructor -> set the default orientation as true (horizontal)
+    Vector();
+
 };
 
 struct Matrix {
