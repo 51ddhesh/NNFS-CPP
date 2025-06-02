@@ -38,3 +38,94 @@ Matrix Axon::to_column_matrix(const Vector &vec) {
     }
     return M;
 }
+
+// Find the transpose of the Vector
+Matrix Axon::T(const Vector &vec) {
+    return Axon::to_column_matrix(std::cref(vec));
+}
+
+// Find the transpose of the Matrix
+Matrix Axon::T(const Matrix &mat) {
+    size_t rows = mat.M.size();
+    size_t columns = mat.M[0].size();
+
+    // Create a new matrix to store the transpose
+    // The new matrix has `columns` rows and `row` columns
+    Matrix transposedMatrix;
+
+    for (size_t i = 0; i < columns; i++) {
+        std::vector<double> temp;
+        for (size_t j = 0; j < rows; j++) {
+            temp[i] = mat.M[j][i];
+        }
+        transposedMatrix.M.push_back(temp);
+    }
+
+    return transposedMatrix;
+}
+
+// Print the vector
+void Axon::print(const Vector &vec) {
+    if (vec.orientation) {
+        size_t length = vec.V.size();
+        std::cout << '[';
+        for (size_t i = 0; i < length; i++) {
+            if (i == length - 1) {
+                std::cout << vec.V[i];
+            }
+            else {
+                std::cout << vec.V[i] << ", ";
+            }    
+        }
+        std::cout << "]\n";
+    } else {
+        size_t height = vec.V.size();
+        std::cout << "[";
+        for (size_t i = 0; i < height; i++) {
+            if (i == 0) {
+                std::cout << '[' << vec.V[i] << "],\n"; 
+            }
+            else if (i == height - 1) {
+                std::cout << " [" << vec.V[i] << ']'; 
+            }
+            else {
+                std::cout << " [" << vec.V[i] << "],\n"; 
+            }    
+        }
+        std::cout << "]\n";
+    }
+}
+
+void Axon::print(const Matrix &mat) {
+    size_t rows = mat.M.size();
+    size_t columns = mat.M[0].size();
+    std::cout << '[';
+    for (size_t i = 0; i < rows; i++) {
+        if (i == 0) {
+            std::cout << '[';
+        } else {
+            std::cout << " [";
+        }
+        
+        for (size_t j = 0; j < columns; j++) {
+            if (j == 0) {
+                std::cout << mat.M[i][j] << ", ";
+            }
+            else if (j == columns - 1) {
+                std::cout << mat.M[i][j];
+            }
+            else {
+                std::cout << mat.M[i][j] << ", ";
+            }
+        }
+        
+        if (i != rows - 1) {
+            std::cout << "],\n";
+        } else {
+            std::cout << "]";
+        }
+    }
+    std::cout << "]\n";
+}
+
+

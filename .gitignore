@@ -1,6 +1,8 @@
+# Outputs and Executables
 out
-*.pdf
 *.o
 *.out
 *.exe
 
+# Custom tests
+test

@@ -28,6 +28,14 @@ class Axon {
         // Convert a column Vector to a column Matrix
         Matrix to_column_matrix(const Vector &vec);
 
+        // Transpose
+        Matrix T(const Vector &vec);
+        Matrix T(const Matrix &mat);
+
+        // Print
+        void print(const Vector &vec);
+        void print(const Matrix &mat);
+
 };
 
 #endif // __AXON_UTILS_HPP_
